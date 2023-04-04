@@ -1,0 +1,44 @@
+<div class="samples">
+  <h2>Samples</h2>
+
+  <div>
+    <input
+      type="text"
+      class="form-control"
+      name="txtValue"
+      (input)="onInputTextEvent()"
+      placeholder="Enter here some value"
+      [(ngModel)]="textvalue"
+    />
+  </div>
+  <div>
+    <input type="text" value="{{ textvalue }}" />
+  </div>
+  <div>
+    <button [disabled]="!enabledButton">Reset</button>
+  </div>
+
+  <br />
+  <div>
+    <div>
+      <input type="text" placeholder="Enter password" />
+    </div>
+    <div>
+      <div *ngIf="showPassword; then thenBlock; else elseBlock"></div>
+      <ng-template #thenBlock>show password = true</ng-template>
+      <ng-template #elseBlock>show password = false</ng-template>
+    </div>
+    <div>
+      <button (click)="onDisplayDetails()">Display Details</button>
+    </div>
+    <div>
+      <div
+        *ngFor="let item of clicks; let i = index"
+        [ngStyle]="{ backgroundColor: i > 3 ? 'blue' : 'transparent' }"
+        [ngClass]="{ 'text-white': i > 3 }"
+      >
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>
